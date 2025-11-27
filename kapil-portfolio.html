@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapil Sharma | Senior Android Developer</title>
+    <style>
+        /* Base Styles & Dark Theme */
+        :root {
+            --color-dark-bg: #121212;
+            --color-card-bg: #1e1e1e;
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #b3b3b3;
+            --color-accent: #00bcd4; /* Cyan/Teal for modern pop */
+            --color-accent-dark: #0097a7;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-dark-bg);
+            color: var(--color-text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #1f1f1f, #0a0a0a);
+            padding: 60px 0;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .profile-pic {
+            flex-shrink: 0;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--color-accent);
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.5);
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bio {
+            flex-grow: 1;
+            max-width: 800px;
+        }
+
+        .bio h1 {
+            font-size: 2.8em;
+            margin-bottom: 5px;
+            color: var(--color-accent);
+        }
+
+        .bio h2 {
+            font-size: 1.5em;
+            color: var(--color-text-secondary);
+            margin-top: 0;
+            font-weight: 300;
+        }
+
+        .bio p {
+            font-size: 1.1em;
+            color: var(--color-text-secondary);
+        }
+
+        .highlight {
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 40px 0;
+        }
+
+        h3 {
+            font-size: 2em;
+            color: var(--color-accent);
+            border-bottom: 3px solid var(--color-accent-dark);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .skill-card {
+            background-color: var(--color-card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-left: 4px solid var(--color-accent);
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .skill-card h4 {
+            color: var(--color-accent);
+            margin-top: 0;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .skill-card ul, .skill-card p {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-card li, .skill-card .skill-tag {
+            background-color: #333;
+            color: var(--color-text-primary);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            border: 1px solid #444;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--color-card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7);
+        }
+
+        .project-image {
+            height: 200px; /* Creative image space */
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-image .placeholder-text {
+            color: var(--color-text-secondary);
+            font-style: italic;
+            font-size: 1.2em;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h4 {
+            font-size: 1.4em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--color-accent);
+        }
+
+        .project-info p {
+            color: var(--color-text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .project-link a {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-dark-bg);
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .project-link a:hover {
+            background-color: var(--color-accent-dark);
+            color: var(--color-text-primary);
+        }
+
+        .not-live {
+            color: #ffcc00; /* Warning color */
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* Education Section */
+        .education-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .education-table th, .education-table td {
+            border: 1px solid #333;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .education-table th {
+            background-color: var(--color-accent-dark);
+            color: var(--color-dark-bg);
+            font-weight: bold;
+        }
+
+        .education-table tr:nth-child(even) {
+            background-color: #2a2a2a;
+        }
+
+        .education-table tr:hover {
+            background-color: #383838;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+            color: var(--color-text-secondary);
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="profile-pic">
+                <img src="IMG-20220805-WA0000.jpg" alt="Kapil Sharma Profile Picture">
+            </div>
+            <div class="bio">
+                <h1>Kapil Sharma</h1>
+                <h2>Senior Android Developer | <span class="highlight">9+ Years of Expertise</span></h2>
+
+                <p>I am Kapil Sharma, a Senior Android Developer with over <span class="highlight">nine years of experience</span> specializing in building high-quality, scalable, and user-centric mobile applications. My technical mastery spans <span class="highlight">Kotlin, Jetpack Compose, MVVM, Coroutines, and Clean Architecture</span>, allowing me to engineer robust, maintainable, and future-ready mobile solutions for both cutting-edge startups and large-scale enterprise systems.</p>
+
+                <p>I have led development for complex real-time and IoT-powered applications—including <span class="highlight">ChargePoint</span>, a major EV charging system, as well as sophisticated booking and payment-driven workflows. My focus is performance and reliability, proven by achieving a <span class="highlight">40% reduction in crashes and ANRs</span> and a <span class="highlight">35% enhancement in API responsiveness</span>.</p>
+
+                <p>My expertise includes modular architectures, CI/CD pipelines, and Firebase-based ecosystems. I actively mentor development teams, conduct rigorous code reviews, and champion Agile development practices. I deliver <span class="highlight">clean architecture, on-time execution, and scalable engineering</span> for new product development, modernization, and performance optimization.</p>
+            </div>
+        </div>
+    </header>
+
+    <section id="skills">
+        <div class="container">
+            <h3>🛠️ Core Skills & Expertise</h3>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <h4>Mobile App Dev Deliverables</h4>
+                    <p>
+                        <span class="skill-tag">Android App Development</span>
+                        <span class="skill-tag">Native App Development</span>
+                        <span class="skill-tag">Hybrid App Development</span>
+                        <span class="skill-tag">Mobile App Improvement</span>
+                        <span class="skill-tag">Mobile App Redesign</span>
+                        <span class="skill-tag">AI Mobile App Development</span>
+                        <span class="skill-tag">Payment Gateway Integration</span>
+                        <span class="skill-tag">Mobile App Localization</span>
+                        <span class="skill-tag">Mobile App Bug Fix</span>
+                        <span class="skill-tag">Mobile App Testing</span>
+                        <span class="skill-tag">Mobile App Development Consultation</span>
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Programming Languages</h4>
+                    <p>
+                        <span class="skill-tag">Kotlin</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">GraphQL</span>
+                    </p>
+                    <h4 style="margin-top: 20px;">Platforms & Databases</h4>
+                    <p>
+                        <span class="skill-tag">Android</span>
+                        <span class="skill-tag">IOS (Hybrid)</span>
+                        <span class="skill-tag">SQLite</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MySQL</span>
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Dev Tools & Architecture</h4>
+                    <p>
+                        <span class="skill-tag">Android Studio</span>
+                        <span class="skill-tag">Android SDK</span>
+                        <span class="skill-tag">Jetpack Compose</span>
+                        <span class="skill-tag">MVVM</span>
+                        <span class="skill-tag">Clean Architecture</span>
+                        <span class="skill-tag">RESTful Architecture</span>
+                        <span class="skill-tag">Retrofit</span>
+                        <span class="skill-tag">GraphQL</span>
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Gradle</span>
+                        <span class="skill-tag">JUnit</span>
+                        <span class="skill-tag">Android NDK</span>
+                        <span class="skill-tag">OpenAI API</span>
+                        <span class="skill-tag">Flutter</span>
+                        <span class="skill-tag">React Native</span>
+                        <span class="skill-tag">NativeScript</span>
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <h4>App Features & Functionality</h4>
+                    <p>
+                        <span class="skill-tag">API Integration</span>
+                        <span class="skill-tag">Payment Functionality</span>
+                        <span class="skill-tag">User Authentication</span>
+                        <span class="skill-tag">Map Integration</span>
+                        <span class="skill-tag">Location-Based Service</span>
+                        <span class="skill-tag">Push Notifications</span>
+                        <span class="skill-tag">Advanced Analytics</span>
+                        <span class="skill-tag">Offline Functionality</span>
+                        <span class="skill-tag">QR & Barcode Scanner</span>
+                        <span class="skill-tag">In-App Purchases</span>
+                        <span class="skill-tag">Camera / Microphone</span>
+                        <span class="skill-tag">Bluetooth</span>
+                        <span class="skill-tag">Application Security</span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h3>🚀 Featured Projects</h3>
+
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://play-lh.googleusercontent.com/VOUp4pC3EpNJEORZldKUCCOdd4rMAAtqCj6Pa2FawizKpIJ5NUDPiHAmtJeGM-eA07c=w240-h480-rw" alt="ChargePoint App Image">
+                    </div>
+                    <div class="project-info">
+                        <h4>ChargePoint (IoT & EV Charging)</h4>
+                        <p>An EV charging infrastructure application supporting real-time charger availability, session management, payment integration, and smart IoT communication with charging hardware.</p>
+                        <div class="project-link">
+                            <a href="https://play.google.com/store/apps/details?id=com.coulombtech" target="_blank">
+                                View on Google Play
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://i.ytimg.com/vi/R9-tgsUyuJ4/hqdefault.jpg" alt="Calley App Image">
+                    </div>
+                    <div class="project-info">
+                        <h4>Auto Dialer Software – Calley (Productivity)</h4>
+                        <p>A productivity-focused auto dialer application designed to streamline outbound calling for businesses and professionals. Supports bulk contact uploads, automated dialing cycles, and reporting.</p>
+                        <div class="project-link">
+                            <a href="https://play.google.com/store/apps/details?id=com.getcalley.app.calley" target="_blank">
+                                View on Google Play
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                         <img src="https://play-lh.googleusercontent.com/9xMTcIms0WtWj8Ra4Vhlfm3Dz8zrd53tfrgyyA5kNLHnap2qjSrPDshm3YfKLElY4w=w240-h480-rw" alt="EaseMyTrip App Image">
+                    </div>
+                    <div class="project-info">
+                        <h4>EaseMyTrip (Large-Scale Travel Booking)</h4>
+                        <p>A large-scale travel application enabling seamless flight, hotel, bus, and holiday booking functionalities. Contributed to performance improvements and codebase modernization at scale.</p>
+                        <div class="project-link">
+                            <a href="https://play.google.com/store/apps/details?id=com.easemytrip.android" target="_blank">
+                                View on Google Play
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                         <img src="https://play-lh.googleusercontent.com/908zFfRNkb81j6Ipq-Ktqfj04Q_3i_AWZbxRqcqqA5YvkgvgK2TWPIsyKYKbWdMTAbcR=w240-h480-rw" alt="RechargeZap App Image">
+                    </div>
+                    <div class="project-info">
+                        <h4>RechargeZap (Payment & Utilities)</h4>
+                        <p>A multi-service recharge platform offering secure mobile, DTH, and utility bill payments. Implemented secure API integrations, improved UI responsiveness, and enhanced transaction reliability.</p>
+                        <div class="project-link">
+                            <a href="https://play.google.com/store/apps/details?id=com.app.rechargezap" target="_blank">
+                                View on Google Play
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="itztutorpartner.jpg" alt="itzTutor Partner Image">
+                    </div>
+                    <div class="project-info">
+                        <h4>itzTutor Partner (Education Management)</h4>
+                        <p>A mobile platform for tutors across Delhi-NCR enabling profile creation, verification, service listing, and lead generation tools.</p>
+                        <p class="not-live">Status: Not live on Play Store (Under Development)</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="itztutor.jpg" alt="itzTutor Partner Image">
+                    </div>
+                    <div class="project-info">
+                        <h4>itzTutor (Education Management)</h4>
+                        <p>An end-to-end tuition management platform offering tutor search, tuition tracking, progress assessment, and payment workflows. Designed for K-12 users.</p>
+                        <p class="not-live">Status: Not live on Play Store (Under Development)</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h3>🎓 Education</h3>
+            <table class="education-table">
+                <thead>
+                    <tr>
+                        <th>Degree</th>
+                        <th>Institution</th>
+                        <th>Focus</th>
+                        <th>Years</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Master of Computer Applications (MCA)</td>
+                        <td>Hindustan Institute of Management & Computer Studies</td>
+                        <td>Computer Application</td>
+                        <td>2014 - 2016</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Kapil Sharma. Built for Modern Developers.</p>
+            <p>Senior Android Developer | Clean Architecture & Performance Expert</p>
+        </div>
+    </footer>
+
+</body>
+</html>
